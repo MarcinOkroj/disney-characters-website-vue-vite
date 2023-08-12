@@ -1,11 +1,9 @@
 <script lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import axios from 'axios'
 import FavService from '../service/FavService'
 
-onMounted(() => {
-    // const favService = new FavService();
-});
+
 
 export default {
     setup() {
@@ -15,7 +13,7 @@ export default {
             chars.value = response.data.data;
         })
         return {
-            chars,
+            chars
         }
     },
 
@@ -23,7 +21,6 @@ export default {
         return {
             favService: new FavService()
         }
-
     }
 }
 </script>

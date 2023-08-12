@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import Table from './components/Table.vue';
+import Dashboard from './components/Dashboard.vue';
+import Favourites from './components/Favourites.vue';
 import Header from './components/Header.vue'; 
 </script>
 
@@ -9,7 +10,7 @@ import Header from './components/Header.vue';
   </header>
 
   <div class="table-wrapper">
-    <Table />
+    <router-view></router-view>
   </div>
 </template>
 
