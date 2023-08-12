@@ -1,17 +1,29 @@
 <script lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from 'axios'
+import FavService from '../service/FavService'
+
+onMounted(() => {
+    // const favService = new FavService();
+});
 
 export default {
     setup() {
 
         let chars: any = ref()
-        axios.get('https://api.disneyapi.dev/character?pageSize=100').then(response => {
+        axios.get('https://api.disneyapi.dev/character?pageSize=20').then(response => {
             chars.value = response.data.data;
         })
         return {
-            chars
+            chars,
         }
+    },
+
+    data() {       
+        return {
+            favService: new FavService()
+        }
+
     }
 }
 </script>
@@ -29,7 +41,12 @@ export default {
                 <Column field="films.length" header="Films count"></Column>
                 <Column header="Favourite">
                     <template #body="slotProps">
-                        <i class="fa-regular fa-star char-table__fav-icon"></i>
+                        <i v-if="favService.inLocalStorage(slotProps.data._id)"
+                            class="fa-solid fa-star char-table__fav-icon"
+                            @click="favService.onFavClick($event, slotProps.data)"></i>
+                        <i v-if="!favService.inLocalStorage(slotProps.data._id)"
+                            class="fa-regular fa-star char-table__fav-icon"
+                            @click="favService.onFavClick($event, slotProps.data)"></i>
                     </template>
                 </Column>
             </DataTable>
