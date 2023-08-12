@@ -5,12 +5,12 @@ import { ref } from 'vue'
 <template>
     <header class="header">
         <div class="header__icon" routerLinkActive="active">
-            <a routerLink="">
+            <router-link to="/">
                 <img src="../assets/Disney_wordmark.svg" />
-            </a>
+            </router-link>
         </div>
         <div class="header__favourites" routerLinkActive="active">
-            <a class="header__favourites--link" routerLink="/favourites">My favourite</a>
+            <router-link to="/favourite" class="header__favourites--link">My favourite</router-link>
         </div>
     </header>
 </template>
