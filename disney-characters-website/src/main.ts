@@ -8,7 +8,7 @@ import ToastService from 'primevue/toastservice';
 import './assets/main.css'
 import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
-import 'primeicons/primeicons.css';      
+import 'primeicons/primeicons.css';  
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
