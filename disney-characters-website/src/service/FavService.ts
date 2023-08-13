@@ -1,9 +1,4 @@
-import { useToast } from "primevue/usetoast";
-
 export default class FavService {
-  //   favArr: any[] = [];
-
-  toast = useToast();
 
   onFavClick(event: any, char: any) {
     if (event.target.classList.contains("fa-regular")) {
@@ -22,13 +17,6 @@ export default class FavService {
     if (!this.inLocalStorage(charId)) {
       favArr.push(charId);
       this.addLocalStorage(favArr);
-      //   this.toastr.success('has been added to favourites', charName);
-      this.toast.add({
-        severity: "success",
-        summary: "PrimeVue",
-        detail: "Welcome to PrimeVue + Create Vue",
-        life: 3000,
-      });
     }
   }
 
@@ -39,13 +27,6 @@ export default class FavService {
     if (this.inLocalStorage(charId)) {
       favArr.splice(favArr.indexOf(charId), 1);
       this.addLocalStorage(favArr);
-      //   this.toastr.warning('has been removed from favourites', charName);
-      this.toast.add({
-        severity: "success",
-        summary: "PrimeVue",
-        detail: "Welcome to PrimeVue + Create Vue",
-        life: 3000,
-      });
     }
   }
 
