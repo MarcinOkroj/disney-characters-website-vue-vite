@@ -2,16 +2,16 @@
 import Dashboard from './components/Dashboard.vue';
 import Favourites from './components/Favourites.vue';
 import Header from './components/Header.vue'; 
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <header>
     <Header />
-  </header>
-
   <div class="table-wrapper">
     <router-view></router-view>
   </div>
+  <Footer />
+  
 </template>
 
 <style scoped>

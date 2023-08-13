@@ -4,16 +4,13 @@ import axios from 'axios'
 import FavService from '../service/FavService'
 
 export default {
-    props: {
-        title: String,
-        likes: Number
-    },
-    setup(props) {
+    setup() {
         let chars: any = ref()
         let bestChars: any = ref()
         let bestCharsFlag: any = ref()
         axios.get('https://api.disneyapi.dev/character?pageSize=100').then(response => {
-            chars.value = response.data.data;
+            chars.value=response.data.data.slice().filter((char: any) => char.films.length >= 1)
+
             bestChars.value = response.data.data
                 .slice() //make shallow copy
                 .sort((a: any, b: any) => b.films.length - a.films.length)
